@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    background: linear-gradient(to right, #5a98d1, #86c5da);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: floatBubbles 5s infinite alternate ease-in-out;
+}
+
+@keyframes floatBubbles {
+    0% { transform: translateY(0); opacity: 0.5; }
+    100% { transform: translateY(-15px); opacity: 0.8; }
+}
+
+/* Main Container */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    max-width: 90%;
+    width: 400px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Title */
+h1 {
+    color: #2c71a8;
+    font-size: 2.5rem;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px 10px rgba(44, 113, 168, 0.5);
+}
+
+/* Responsive Text */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    font-size: 1.5rem;
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 200px;
+}
+
+/* Yes Button */
+#yes-btn {
+    background: linear-gradient(to right, #1e88e5, #1976d2);
+    color: white;
+    box-shadow: 0px 5px 15px rgba(30, 136, 229, 0.5);
+}
+
+#yes-btn:hover {
+    background: linear-gradient(to right, #1565c0, #0d47a1);
+    transform: scale(1.1);
+    box-shadow: 0px 8px 20px rgba(21, 101, 192, 0.6);
+}
+
+/* No Button */
+#no-btn {
+    background: linear-gradient(to right, #b0bec5, #78909c);
+    color: white;
+    position: relative;
+}
+
+/* No Button Moves Away */
+#no-btn:hover, #no-btn:active {
+    position: absolute;
+    top: calc(20% + (Math.random() * 60%));
+    left: calc(20% + (Math.random() * 60%));
+}
+
+/* Mobile No Button Movement */
+@media (max-width: 600px) {
+    #no-btn {
+        position: absolute;
+    }
+}
+
+/* Notification Styling */
+.notification {
+    position: fixed;
+    top: 10%;
+    right: 50%;
+    transform: translateX(50%);
+    background: linear-gradient(to right, #1e88e5, #42a5f5);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(30, 136, 229, 0.6);
+    animation: fadeInOut 3s ease-in-out;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Only Blue Hearts in Notification */
+.notification::before {
+    content: "💙";
+    font-size: 1.5rem;
+}
+
+/* Fade-in and fade-out animation */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px) translateX(50%); }
+    10% { opacity: 1; transform: translateY(0) translateX(50%); }
+    90% { opacity: 1; transform: translateY(0) translateX(50%); }
+    100% { opacity: 0; transform: translateY(-20px) translateX(50%); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        width: 180px;
+    }
+
+    .notification {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+}
